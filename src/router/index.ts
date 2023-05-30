@@ -3,6 +3,7 @@ import { constRoute } from './routes'
 
 //创建路由器
 let router = createRouter({
+  //哈希模式
   history: createWebHashHistory(),
   routes: constRoute,
   //滚动行为

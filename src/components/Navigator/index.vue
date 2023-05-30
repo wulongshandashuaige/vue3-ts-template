@@ -1,13 +1,7 @@
 <template>
-    <div>
-        hahaha 
-    </div>
+  <div>hahaha</div>
 </template>
 
-<script setup lang="ts">
-    
-</script>
+<script setup lang="ts"></script>
 
-<style lang="css" scoped>
-    
-</style>
+<style lang="css" scoped></style>

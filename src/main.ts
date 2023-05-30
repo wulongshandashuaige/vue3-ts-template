@@ -6,6 +6,9 @@ import 'element-plus/dist/index.css'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import 'virtual:svg-icons-register'
 import gloalComponent from '@/components'
+//引入全局样式
+import '@/styles/index.scss'
+
 const app = createApp(App)
 //安装自定义插件
 app.use(gloalComponent)

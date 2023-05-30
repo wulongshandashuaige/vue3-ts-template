@@ -8,11 +8,13 @@ import 'virtual:svg-icons-register'
 import gloalComponent from '@/components'
 //引入全局样式
 import '@/styles/index.scss'
-
+//引入路由
+import router from './router'
 const app = createApp(App)
 //安装自定义插件
 app.use(gloalComponent)
 app.use(ElementPlus, {
   locale: zhCn,
 })
+app.use(router)
 app.mount('#app')

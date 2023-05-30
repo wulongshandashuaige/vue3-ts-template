@@ -6,10 +6,12 @@ import {
   Message,
   Search,
   Star,
-} from '@element-plus/icons-vue'</script>
+} from '@element-plus/icons-vue'
+</script>
 
 <template>
-  <div>App
+  <div>
+    App
     <el-button :icon="Search" circle />
     <el-button type="primary" :icon="Edit" circle />
     <el-button type="success" :icon="Check" circle />

@@ -6,6 +6,6 @@ import 'element-plus/dist/index.css'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 const app = createApp(App)
 app.use(ElementPlus, {
-    locale: zhCn
+  locale: zhCn,
 })
 app.mount('#app')

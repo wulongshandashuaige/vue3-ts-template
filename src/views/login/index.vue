@@ -3,10 +3,15 @@
     <ElRow>
       <ElCol :span="12" xs="0"></ElCol>
       <ElCol :span="12" xs="24" class="elcol">
-        <ElForm class="login_form">
+        <ElForm
+          class="login_form"
+          :model="loginForm"
+          :rules="rules"
+          ref="loginForms"
+        >
           <h1>HELLO</h1>
           <h2>商品后台</h2>
-          <ElFormItem>
+          <ElFormItem prop="username">
             <ElInput
               :prefix-icon="User"
               type="text"
@@ -14,7 +19,7 @@
               v-model="loginForm.username"
             ></ElInput>
           </ElFormItem>
-          <ElFormItem>
+          <ElFormItem prop="password">
             <ElInput
               :prefix-icon="Lock"
               type="password"
@@ -52,13 +57,39 @@ const loginForm = reactive({
   username: 'admin',
   password: '111111',
 })
+const loginForms = ref()
+//表单校验规则
+const validatorUserName = (rule: any, value: any, callback: any) => {
+  if (value.length >= 5) {
+    callback()
+  } else {
+    callback(new Error('用户名至少5位'))
+  }
+}
+const validatorPassword = (rule: any, value: any, callback: any) => {
+  if (value.length >= 6) {
+    callback()
+  } else {
+    callback(new Error('密码至少6位'))
+  }
+}
+const rules = {
+  username: [
+    //自定义校验
+    { trigger: 'change', validator: validatorUserName },
+  ],
+  password: [{ trigger: 'change', validator: validatorPassword }],
+}
+
 const loading = ref(false)
 const $router = useRouter()
 const userLogin = async () => {
+  //校验通过
+  await loginForms.value.validate()
+  //开启loading按钮
   loading.value = true
   try {
-    let res = await useStore.userLogin(loginForm)
-
+    await useStore.userLogin(loginForm)
     $router.push('/')
     ElNotification({
       type: 'success',

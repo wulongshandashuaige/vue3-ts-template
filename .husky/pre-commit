@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 # 提交代码前格式化
-pnpm run format
+# pnpm run format

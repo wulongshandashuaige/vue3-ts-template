@@ -2,22 +2,14 @@
   <div>
     <div class="layout_container">
       <div class="layout_slider">
-        <logo></logo>
+        <Logo></Logo>
         <el-scrollbar class="scrollbar">
-          <ElMenu background-color="$base-menu-background" text-color="white">
-            <ElMenuItem index="1">首页</ElMenuItem>
-            <ElMenuItem index="2">数据大屏</ElMenuItem>
-            <el-sub-menu index="3">
-              <template #title>
-                <span>权限管理</span>
-              </template>
-              <ElMenuItem index="3-1">用户管理</ElMenuItem>
-              <ElMenuItem index="3-2">角色管理</ElMenuItem>
-              <ElMenuItem index="3-3">菜单管理</ElMenuItem>
-            </el-sub-menu>
-          </ElMenu>
+          <el-menu background-color="$base-menu-background" text-color="white">
+            <Menu :menuList="userStore.menuRoutes"></Menu>
+          </el-menu>
         </el-scrollbar>
       </div>
+
       <div class="layout_tabbarr">2</div>
       <div class="layout_main">
         <p style="height: 10000px">123</p>
@@ -27,7 +19,10 @@
 </template>
 
 <script setup lang="ts">
-import logo from './logo/index.vue'
+import Logo from './logo/index.vue'
+import Menu from './menu/index.vue'
+import useUserStore from '@/store/modules/user'
+const userStore = useUserStore()
 </script>
 
 <style lang="scss" scoped>
@@ -41,6 +36,9 @@ import logo from './logo/index.vue'
     .scrollbar {
       height: calc(100vh - $base-menu-logo-height - 40px);
       width: 100%;
+      .el-menu {
+        border-right: none;
+      }
     }
   }
 

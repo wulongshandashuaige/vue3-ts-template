@@ -106,7 +106,11 @@ const userLogin = async () => {
   }
 }
 </script>
-
+<script lang="ts">
+export default {
+  name: 'Login',
+}
+</script>
 <style lang="scss" scoped>
 .login_container {
   background: url('@/assets/images/background.jpg') no-repeat;

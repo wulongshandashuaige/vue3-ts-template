@@ -1,7 +1,7 @@
 <template>
-  <el-button size="medium" icon="Refresh" circle></el-button>
-  <el-button size="medium" icon="FullScreen" circle></el-button>
-  <el-button size="medium" icon="Setting" circle></el-button>
+  <el-button size="default" icon="Refresh" circle></el-button>
+  <el-button size="default" icon="FullScreen" circle></el-button>
+  <el-button size="default" icon="Setting" circle></el-button>
   <img
     src="../../../assets/images/logo.png"
     style="width: 24px; height: 24px; margin-left: 10px"
@@ -26,5 +26,9 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
 </script>
-
+<script lang="ts">
+export default {
+  name: 'Setting',
+}
+</script>
 <style lang="css" scoped></style>

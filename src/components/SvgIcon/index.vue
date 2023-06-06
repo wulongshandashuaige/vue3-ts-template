@@ -32,5 +32,9 @@ defineProps({
   },
 })
 </script>
-
+<script lang="ts">
+export default {
+  name: 'SvgIcon',
+}
+</script>
 <style lang="css" scoped></style>

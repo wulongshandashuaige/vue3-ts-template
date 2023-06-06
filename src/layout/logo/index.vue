@@ -8,7 +8,11 @@
 <script setup lang="ts">
 import setting from '../../setting'
 </script>
-
+<script lang="ts">
+export default {
+  name: 'Logo',
+}
+</script>
 <style lang="scss" scoped>
 .container {
   display: flex;

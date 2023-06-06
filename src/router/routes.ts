@@ -16,9 +16,7 @@ export const constRoute = [
     component: () => import('@/layout/index.vue'),
     name: 'layout',
     meta: {
-      title: 'Layout',
       hidden: false,
-      icon: 'HomeFilled',
     },
     redirect: '/home',
     children: [
@@ -55,6 +53,7 @@ export const constRoute = [
       hidden: false,
       icon: 'Lock',
     },
+    redirect: '/acl/user',
     children: [
       {
         path: '/acl/user',

@@ -23,9 +23,7 @@
   </el-dropdown>
 </template>
 
-<script setup lang="ts">
-import { ref, reactive } from 'vue'
-</script>
+<script setup lang="ts"></script>
 <script lang="ts">
 export default {
   name: 'Setting',

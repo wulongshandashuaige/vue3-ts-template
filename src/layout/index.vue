@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="layout_container">
+      <!-- 侧边栏 -->
       <div class="layout_slider">
         <Logo></Logo>
         <el-scrollbar class="scrollbar">
@@ -8,13 +9,17 @@
             background-color="$base-menu-background"
             text-color="white"
             router
+            :default-active="$route.path"
           >
             <Menu :menuList="userStore.menuRoutes"></Menu>
           </el-menu>
         </el-scrollbar>
       </div>
-
-      <div class="layout_tabbarr">2</div>
+      <!--  顶部导航-->
+      <div class="layout_tabbarr">
+        <Tabbar></Tabbar>
+      </div>
+      <!--内容展示区 -->
       <div class="layout_main">
         <Main></Main>
       </div>
@@ -26,8 +31,12 @@
 import Logo from './logo/index.vue'
 import Menu from './menu/index.vue'
 import Main from './main/index.vue'
+import Tabbar from './tabbar/index.vue'
 import useUserStore from '@/store/modules/user'
+import { useRoute } from 'vue-router'
 const userStore = useUserStore()
+const $route = useRoute()
+console.log($route)
 </script>
 
 <style lang="scss" scoped>
@@ -50,7 +59,6 @@ const userStore = useUserStore()
   .layout_tabbarr {
     width: calc(100% - $base-menu-width);
     height: $base-tabbar-height;
-    background-color: aquamarine;
     position: fixed;
     top: 0;
     left: $base-menu-width;

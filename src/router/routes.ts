@@ -7,6 +7,7 @@ export const constRoute = [
     meta: {
       title: '登陆',
       hidden: true,
+      icon: 'HomeFilled',
     },
   },
   {
@@ -17,6 +18,7 @@ export const constRoute = [
     meta: {
       title: 'Layout',
       hidden: false,
+      icon: 'HomeFilled',
     },
     children: [
       {
@@ -25,16 +27,8 @@ export const constRoute = [
         name: 'home',
         meta: {
           title: '首页',
-          hidden: true,
-        },
-      },
-      {
-        path: '/home',
-        component: () => import('@/views/home/index.vue'),
-        name: 'home',
-        meta: {
-          title: '首页',
           hidden: false,
+          icon: 'HomeFilled',
         },
       },
     ],
@@ -47,6 +41,7 @@ export const constRoute = [
     meta: {
       title: '404',
       hidden: true,
+      icon: 'HomeFilled',
     },
   },
   {
@@ -57,6 +52,7 @@ export const constRoute = [
     meta: {
       title: '任意',
       hidden: true,
+      icon: 'HomeFilled',
     },
   },
 ]

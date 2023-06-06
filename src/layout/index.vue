@@ -4,7 +4,11 @@
       <div class="layout_slider">
         <Logo></Logo>
         <el-scrollbar class="scrollbar">
-          <el-menu background-color="$base-menu-background" text-color="white">
+          <el-menu
+            background-color="$base-menu-background"
+            text-color="white"
+            router
+          >
             <Menu :menuList="userStore.menuRoutes"></Menu>
           </el-menu>
         </el-scrollbar>
@@ -12,7 +16,7 @@
 
       <div class="layout_tabbarr">2</div>
       <div class="layout_main">
-        <p style="height: 10000px">123</p>
+        <Main></Main>
       </div>
     </div>
   </div>
@@ -21,6 +25,7 @@
 <script setup lang="ts">
 import Logo from './logo/index.vue'
 import Menu from './menu/index.vue'
+import Main from './main/index.vue'
 import useUserStore from '@/store/modules/user'
 const userStore = useUserStore()
 </script>

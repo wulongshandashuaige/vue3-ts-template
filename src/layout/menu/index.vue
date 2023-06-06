@@ -3,11 +3,7 @@
     <template v-for="(item, index) in menuList" :key="item.path">
       <!-- 没有子路由 -->
       <template v-if="!item.children">
-        <el-menu-item
-          :index="item.path"
-          v-if="!item.meta.hidden"
-          @click="goRoute"
-        >
+        <el-menu-item :index="item.path" v-if="!item.meta.hidden">
           <template #title>
             <el-icon>
               <component :is="item.meta.icon"></component>
@@ -50,9 +46,12 @@
 
 <script setup lang="ts">
 defineProps(['menuList'])
-const goRoute = (vc: any) => {
-  console.log(vc.index)
-}
+//在Menu配置router属性自动添加此方法
+// import { useRouter } from 'vue-router';
+// let $router = useRouter()
+// const goRoute = (vc: any) => {
+//   $router.push(vc.index)
+// }
 </script>
 
 <script lang="ts">

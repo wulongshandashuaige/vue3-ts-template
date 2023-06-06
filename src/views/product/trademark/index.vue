@@ -1,9 +1,9 @@
 <template>
-  <div>home</div>
+  <div>trademark</div>
 </template>
 
 <script setup lang="ts">
-// import layout from '../../layout/index.vue'
+import { ref, reactive } from 'vue'
 </script>
 
 <style lang="css" scoped></style>

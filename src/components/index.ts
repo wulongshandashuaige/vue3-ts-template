@@ -3,7 +3,6 @@ import SvgIcon from './SvgIcon/index.vue'
 import Navigator from './Navigator/index.vue'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 //全局对象
-console.log(ElementPlusIconsVue)
 const allGloblComponent: any = { SvgIcon, Navigator }
 //对外暴露插件对象
 export default {

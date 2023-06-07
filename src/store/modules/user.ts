@@ -31,9 +31,11 @@ const useUserStore = defineStore('User', {
     async getUserInfo() {
       let res: userInfoReponseData = await reqUserInfo()
       if (res.code === 200) {
-        console.log(res)
         this.username = res.data.checkUser.username
         this.avatar = res.data.checkUser.avatar
+        return 'ok'
+      } else {
+        return Promise.reject('获取用户信息失败')
       }
     },
     userLogout() {

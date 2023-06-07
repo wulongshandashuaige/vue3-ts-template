@@ -18,11 +18,11 @@ export default {
   display: flex;
   align-items: center;
   color: white;
-  padding: 20px;
+  padding: 10px;
   font-size: $base-logo-title-fontSize;
   img {
     height: $base-menu-logo-height;
-    margin-right: 10px;
+    margin-right: 20px;
   }
 }
 </style>

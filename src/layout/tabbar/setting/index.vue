@@ -5,7 +5,12 @@
     circle
     @click="updateRefresh"
   ></el-button>
-  <el-button size="default" icon="FullScreen" circle></el-button>
+  <el-button
+    size="default"
+    icon="FullScreen"
+    circle
+    @click="fullScreen"
+  ></el-button>
   <el-button size="default" icon="Setting" circle></el-button>
   <img
     src="../../../assets/images/logo.png"
@@ -32,8 +37,19 @@
 import useSettingStore from '@/store/modules/setting'
 
 const settingStore = useSettingStore()
+
+//刷新按钮点击回调
 const updateRefresh = () => {
   settingStore.refsh = !settingStore.refsh
+}
+//全屏按钮点击回调
+const fullScreen = () => {
+  let full = document.fullscreenElement
+  if (!full) {
+    document.documentElement.requestFullscreen()
+  } else {
+    document.exitFullscreen()
+  }
 }
 </script>
 <script lang="ts">

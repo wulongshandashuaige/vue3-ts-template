@@ -4,6 +4,8 @@ const useSettingStore = defineStore('Setting', {
     return {
       //控制侧边栏伸缩
       fold: false,
+      //控制刷新
+      refsh: false,
     }
   },
 })

@@ -1,5 +1,10 @@
 <template>
-  <el-button size="default" icon="Refresh" circle></el-button>
+  <el-button
+    size="default"
+    icon="Refresh"
+    circle
+    @click="updateRefresh"
+  ></el-button>
   <el-button size="default" icon="FullScreen" circle></el-button>
   <el-button size="default" icon="Setting" circle></el-button>
   <img
@@ -23,7 +28,14 @@
   </el-dropdown>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import useSettingStore from '@/store/modules/setting'
+
+const settingStore = useSettingStore()
+const updateRefresh = () => {
+  settingStore.refsh = !settingStore.refsh
+}
+</script>
 <script lang="ts">
 export default {
   name: 'Setting',

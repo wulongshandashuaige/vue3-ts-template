@@ -47,26 +47,28 @@
 <script setup lang="ts">
 import { User, Lock } from '@element-plus/icons-vue'
 import { ref, reactive } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import useUserStore from '@/store/modules/user'
-import { loginForm } from '@/api/user/type'
 import { ElNotification } from 'element-plus'
 import { getTime } from '@/utils/time'
-const useStore = useUserStore()
+const userStore = useUserStore()
 const loginForm = reactive({
   username: 'admin',
   password: '111111',
 })
 const loginForms = ref()
+const loading = ref(false)
+const $router = useRouter()
+const $route = useRoute()
 //表单校验规则
-const validatorUserName = (rule: any, value: any, callback: any) => {
+const validatorUserName = (_rule: any, value: any, callback: any) => {
   if (value.length >= 5) {
     callback()
   } else {
     callback(new Error('用户名至少5位'))
   }
 }
-const validatorPassword = (rule: any, value: any, callback: any) => {
+const validatorPassword = (_rule: any, value: any, callback: any) => {
   if (value.length >= 6) {
     callback()
   } else {
@@ -81,19 +83,17 @@ const rules = {
   password: [{ trigger: 'change', validator: validatorPassword }],
 }
 
-const loading = ref(false)
-const $router = useRouter()
 const userLogin = async () => {
   //校验通过
   await loginForms.value.validate()
   //开启loading按钮
   loading.value = true
   try {
-    await useStore.userLogin(loginForm)
-    $router.push('/')
+    await userStore.userLogin(loginForm)
+    $router.push(($route.query.redirect as string) || '/')
     ElNotification({
       type: 'success',
-      message: '欢迎回来',
+      message: `欢迎回来 ${userStore.username}`,
       title: `Hi！${getTime()}好！`,
     })
   } catch (error) {

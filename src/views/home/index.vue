@@ -1,9 +1,14 @@
 <template>
-  <div>home</div>
+  <div>{{ userStore.username }}</div>
 </template>
 
 <script setup lang="ts">
-// import layout from '../../layout/index.vue'
+import useUserStore from '@/store/modules/user'
+import { onMounted } from 'vue'
+const userStore = useUserStore()
+onMounted(() => {
+  userStore.getUserInfo()
+})
 </script>
 <script lang="ts">
 export default {

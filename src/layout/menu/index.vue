@@ -20,7 +20,7 @@
           v-if="!item.children[0].meta.hidden"
         >
           <el-icon>
-            <component :is="item.meta.icon"></component>
+            <component :is="item.children[0].meta.icon"></component>
           </el-icon>
           <template #title>
             <span>{{ item.children[0].meta.title }}</span>
